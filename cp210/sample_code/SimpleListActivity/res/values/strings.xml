@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AssignmentTwoActivity!</string>
+    <string name="app_name">AssignmentTwo</string>
+    
+    <string-array name="proverbs">
+    <item>testing one</item>
+    <item>testing two</item>
+    </string-array>
+    
+</resources>
