@@ -1,3 +1,9 @@
 SimpleListActivity is a project that illustrates simple lists (in lecture slides)
 
 Themes is a project that shows how to create themes and switch between them.
+
+MyList illustrates simple array adapters.
+
+MyListCustomRow illustrates how to build a custom row.
+
+MylistCustomAdpater illustrates how to extend an adapter.
