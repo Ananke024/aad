@@ -7,3 +7,11 @@ MyList illustrates simple array adapters.
 MyListCustomRow illustrates how to build a custom row.
 
 MylistCustomAdpater illustrates how to extend an adapter.
+
+CopyDbDemo show how to copy a db into your app via assets.
+
+SaveDataFile simply shows how to write to the internal memory.
+
+SearchableDictionary is the Android sample project.
+
+TodoDatabase is Lars Vogel's demo.
