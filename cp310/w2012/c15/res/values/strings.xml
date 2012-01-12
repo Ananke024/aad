@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">C15 HelloHTTP</string>
+    <string name="default_url">http://www.maas.info/book.json</string>
+    <string name="get">Get</string>
+    <string name="parseJSON">Parse as JSON</string>
+    <string name="parseXML">Parse as XML</string>
+</resources>
