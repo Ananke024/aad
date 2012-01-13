@@ -85,6 +85,8 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
     /** An AsycTask used to update the retrieved HTTP header and content displays */
     private class GetAsyncTask extends AsyncTask<Void, Void, HttpResponse> {
         
+    	
+    	
         @Override
         protected HttpResponse doInBackground(Void... params) {
             // Single call to get the response
@@ -127,6 +129,7 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
             if (jsonCheckBox.isChecked()) {
                 // Deserialize the JSON content
                 Gson gson = new Gson();
+                String jsonString = gson.toJson(new Record());
                 Record r = gson.fromJson(sb.toString(), Record.class);
                 
                 mContentTextView.setText("The book is titled " + r.book.title + " and its isbn10 is " + r.book.isbn10);
