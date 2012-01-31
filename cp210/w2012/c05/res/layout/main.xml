@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLinearLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/dpiTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF" />
+    
     <View
         android:background="#FF0000"
         android:id="@+id/view1"
         android:layout_width="100dp"
         android:layout_height="30dp" />
 
+    <aad.app.c05.CustomView
+        android:id="@+id/view2"
+        android:layout_width="100dp"
+        android:layout_height="30dp" />
+        
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
