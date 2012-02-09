@@ -58,7 +58,7 @@ public class HelloAdActivity extends Activity implements OnClickListener {
                 mAdView.setVisibility(AdView.VISIBLE);
             }
         });
-
+        
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainRelativeLayout);
         layout.addView(mAdView);
 
