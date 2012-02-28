@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.CursorLoader;
 import android.widget.SimpleCursorAdapter;
 
 public class HelloContentActivity extends ListActivity {
@@ -24,14 +25,20 @@ public class HelloContentActivity extends ListActivity {
 
         super.onCreate(savedInstanceState);
         
+        // Method 1 - Using a ContentResolver
         ContentResolver cr = this.getContentResolver();               
-        
         Cursor c = cr.query(
                         Uri.parse("content://aad.app.c25.providers.BooksContentProvider/books"), 
                         PROJECTION, 
                         null, 
                         null, 
                         null);
+        
+        
+//        // Method 2 - Using a CursorLoader
+//        CursorLoader cl = new CursorLoader(this, Uri.parse("content://aad.app.c25.providers.BooksContentProvider/books"), PROJECTION, null, null, null);
+//        Cursor c = cl.loadInBackground();
+        
         
         // Setup our mapping from the cursor result to the display field
         String[] from = { "name", "isbn" };
