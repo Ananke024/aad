@@ -18,5 +18,11 @@ public class Books implements BaseColumns {
         /* 2 */ Books.Book.ISBN };
 
     }
+    
+    public static final class Authors {
+    	
+    	public static final String TABLE_NAME = "authors";
+    	
+    }
 
 }

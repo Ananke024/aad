@@ -152,7 +152,8 @@ public class HelloDropboxActivity extends Activity {
                 editor.putString(Constants.KEY_ACCESS_KEY, session.getAccessTokenPair().key);
                 editor.putString(Constants.KEY_ACCESS_SECRET, session.getAccessTokenPair().secret);
                 editor.putBoolean("authenticated", true);
-                
+                editor.commit();
+				
                 findViewById(R.id.buttonAuthorize).setVisibility(View.GONE);
                 findViewById(R.id.contentEditText).setVisibility(View.VISIBLE);            
                 mContentButton.setVisibility(View.VISIBLE);
