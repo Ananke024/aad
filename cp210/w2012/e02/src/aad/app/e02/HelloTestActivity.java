@@ -32,7 +32,7 @@ public class HelloTestActivity extends Activity implements OnClickListener {
         TableLayout tl = (TableLayout) this.findViewById(R.id.mainTableLayout);
         setRowButtons(tl);
 
-        //startOperationBravoMikeTango();
+        startOperationBravoMikeTango();
 
     }
 
