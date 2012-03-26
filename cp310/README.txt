@@ -1,1 +1,0 @@
-This is the source directory for the CP310 Interaction and Communication with Android course

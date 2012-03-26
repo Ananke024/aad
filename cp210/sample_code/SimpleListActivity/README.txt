@@ -1,1 +1,0 @@
-This is the source directory for the CP210 Android Development Fundamentals course.
