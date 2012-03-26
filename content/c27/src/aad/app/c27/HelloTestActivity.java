@@ -1,6 +1,7 @@
-package aad.app.e02;
+package aad.app.c27;
 
-import aad.app.e02.R;
+import aad.app.c27.R;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;

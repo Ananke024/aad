@@ -1,4 +1,4 @@
-package aad.app.e02.test;
+package aad.app.c27.test;
 
 import android.test.AndroidTestCase;
 import android.test.AssertionFailedError;

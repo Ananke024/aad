@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package aad.app.e02.test;
+package aad.app.c27.test;
 
-import aad.app.e02.HelloTestActivity;
+import aad.app.c27.HelloTestActivity;
 
 import android.app.Instrumentation;
 import android.os.SystemClock;
@@ -56,12 +56,12 @@ public class HelloTestActivityTest extends ActivityInstrumentationTestCase2<Hell
 
         mActivity = getActivity();
 
-        b1 = (Button) mActivity.findViewById(aad.app.e02.R.id.btn1);
-        b2 = (Button) mActivity.findViewById(aad.app.e02.R.id.btn2);
-        b3 = (Button) mActivity.findViewById(aad.app.e02.R.id.btn3);
-        b4 = (Button) mActivity.findViewById(aad.app.e02.R.id.btn4);
+        b1 = (Button) mActivity.findViewById(aad.app.c27.R.id.btn1);
+        b2 = (Button) mActivity.findViewById(aad.app.c27.R.id.btn2);
+        b3 = (Button) mActivity.findViewById(aad.app.c27.R.id.btn3);
+        b4 = (Button) mActivity.findViewById(aad.app.c27.R.id.btn4);
 
-        mEditText = (EditText) mActivity.findViewById(aad.app.e02.R.id.mainEditText);
+        mEditText = (EditText) mActivity.findViewById(aad.app.c27.R.id.mainEditText);
     }
 
     public void testButton1() {
