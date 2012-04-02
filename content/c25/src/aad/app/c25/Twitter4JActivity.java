@@ -1,4 +1,4 @@
-package aad.app.c14;
+package aad.app.c25;
 
 import java.util.List;
 
@@ -15,6 +15,8 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
+import aad.app.c25.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;

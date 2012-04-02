@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import aad.app.c15.R;
 import android.app.Activity;
@@ -19,6 +20,8 @@ import android.content.Context;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.util.Xml;
 import android.view.View;
@@ -31,7 +34,7 @@ import android.widget.Toast;
 
 public class HelloHTTPActivity extends Activity implements OnClickListener {
 
-    private static final String TAG = "HelloHTTPActivity";
+    private static final String TAG = HelloHTTPActivity.class.getSimpleName();
     
     private static String USER_AGENT = "HelloHTTP/1.0";
 
@@ -41,6 +44,23 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
     private TextView mHeaderTextView;
     private TextView mContentTextView;
     private String mURLString;
+        
+    // Handler for updating the UI
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            
+            String header = msg.getData().getString("header");
+            if (header != null)
+                mHeaderTextView.setText(header);
+            
+            String text = msg.getData().getString("body");
+            if (text != null)
+                mContentTextView.setText(text);
+        }                
+    };
+    
     
     // Some example class definitions for deserializing the JSON
     class Book {
@@ -84,9 +104,7 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
     
     /** An AsycTask used to update the retrieved HTTP header and content displays */
     private class GetAsyncTask extends AsyncTask<Void, Void, HttpResponse> {
-        
-    	
-    	
+
         @Override
         protected HttpResponse doInBackground(Void... params) {
             // Single call to get the response
@@ -126,15 +144,25 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
                         
             CheckBox jsonCheckBox = (CheckBox) findViewById(R.id.jsonCheckBox);
             CheckBox xmlCheckBox = (CheckBox) findViewById(R.id.xmlCheckBox);
-            if (jsonCheckBox.isChecked()) {
+            
+            if (jsonCheckBox.isChecked()) {                
+                Log.d(TAG, "onPostExecute() Parsing JSON");
+                
                 // Deserialize the JSON content
                 Gson gson = new Gson();
-                String jsonString = gson.toJson(new Record());
-                Record r = gson.fromJson(sb.toString(), Record.class);
-                
-                mContentTextView.setText("The book is titled " + r.book.title + " and its isbn10 is " + r.book.isbn10);
-            }
-            if (xmlCheckBox.isChecked()) {
+                try {
+                    String jsonString = gson.toJson(new Record());
+                    Record r = gson.fromJson(sb.toString(), Record.class);
+                    String text = "The book is titled " + r.book.title + " and its isbn10 is " + r.book.isbn10;
+                    setText(null, text);
+                }
+                catch (JsonSyntaxException e) {
+                    Log.e(TAG, e.getMessage());
+                }                
+
+            } 
+            else if (xmlCheckBox.isChecked()) {                
+                Log.d(TAG, "onPostExecute() Parsing XML");
                 
                 mXMLBuilder = new StringBuilder();
                 
@@ -147,12 +175,12 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
                     e.printStackTrace();
                 }  
                 
-                mContentTextView.setText(mXMLBuilder.toString());
-            }            
+                setText(null, mXMLBuilder.toString());
+            }               
             else {
 
                 // Set the text of the Content
-                mContentTextView.setText(sb.toString());
+                String body = sb.toString();                                
                 
                 Header[] headers = response.getAllHeaders();           
                 for (Header h : headers) {
@@ -161,10 +189,24 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
     
                 // Set the text of the Header
                 mHeaderTextView.setText(sb.toString());
+                
+                String header = sb.toString();
+                setText(header, body);
             }
             
             mClient.close();
             super.onPostExecute(response);
+        }
+        
+        // Call back to the UI thread to update the textual content
+        private void setText(String header, String body) {
+            
+            Bundle data = new Bundle();
+            data.putString("header", header);
+            data.putString("body", body);
+            Message msg = new Message();
+            msg.setData(data);
+            mHandler.sendMessage(msg);
         }
     }
     

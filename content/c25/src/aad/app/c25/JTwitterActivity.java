@@ -1,4 +1,4 @@
-package aad.app.c14;
+package aad.app.c25;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import oauth.signpost.exception.OAuthNotAuthorizedException;
 import winterwell.jtwitter.OAuthSignpostClient;
 import winterwell.jtwitter.Status;
 import winterwell.jtwitter.Twitter;
+
+import aad.app.c25.R;
 
 import android.app.Activity;
 import android.content.Intent;

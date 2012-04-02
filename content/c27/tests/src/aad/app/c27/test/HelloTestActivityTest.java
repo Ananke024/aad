@@ -41,7 +41,7 @@ public class HelloTestActivityTest extends ActivityInstrumentationTestCase2<Hell
     // Constructor
     public HelloTestActivityTest() {
 
-        super("aad.app.e02.HelloTestActivity", HelloTestActivity.class);
+        super("aad.app.c27.HelloTestActivity", HelloTestActivity.class);
     }
 
     /**

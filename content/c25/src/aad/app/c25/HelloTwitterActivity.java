@@ -1,6 +1,6 @@
-package aad.app.c14;
+package aad.app.c25;
 
-import aad.app.c14.R;
+import aad.app.c25.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
