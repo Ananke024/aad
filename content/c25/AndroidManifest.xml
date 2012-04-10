@@ -34,7 +34,7 @@
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name="aad.app.c25.Twitter4JActivity" >
+            android:name=".Twitter4JActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
