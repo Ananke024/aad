@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+// A library of bad things to do
 public class Fail  {
 
     /** This is pretty dumb but it is to illustrate a point... */

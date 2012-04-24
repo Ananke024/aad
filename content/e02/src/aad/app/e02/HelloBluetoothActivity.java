@@ -120,9 +120,10 @@ public class HelloBluetoothActivity extends Activity {
         super.onPause();      
     }
     
+    
     @Override
     public void onResume() {
-        super.onStart();
+        super.onResume();
 
         // Turn on BT
         if (!mBluetoothAdapter.isEnabled()) {

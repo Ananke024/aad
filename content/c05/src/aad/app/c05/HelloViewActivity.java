@@ -2,11 +2,11 @@ package aad.app.c05;
 
 import aad.app.c05.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -47,6 +47,19 @@ public class HelloViewActivity extends Activity {
             }
             
         });
+        
+        ((Button) this.findViewById(R.id.transitionButton)).setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(HelloViewActivity.this, SecondActivity.class));
+                HelloViewActivity.this.overridePendingTransition(R.anim.in, R.anim.out);
+                
+            }
+            
+        });
+
         
         CustomView v = new CustomView(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100, 30);
