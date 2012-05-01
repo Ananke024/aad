@@ -46,7 +46,7 @@ public class AccountSignin extends AccountAuthenticatorActivity {
                 
                 // Check to see if there is an account already
                 mAccountManager = AccountManager.get(AccountSignin.this);
-                Account accounts[] = mAccountManager.getAccountsByType("aad.app.e12");
+                Account accounts[] = mAccountManager.getAccountsByType(ACCOUNT_TYPE);
 
                 if (accounts.length == 0) {
 

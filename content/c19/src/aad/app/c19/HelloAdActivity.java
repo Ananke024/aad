@@ -62,7 +62,7 @@ public class HelloAdActivity extends Activity implements OnClickListener {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainRelativeLayout);
         layout.addView(mAdView);
 
-        // Load an add
+        // Load an ad
         AdRequest ar = new AdRequest();        
         ar.setGender(AdRequest.Gender.FEMALE);
         //ar.addTestDevice("7FCEE51AE8D616077EA8B75268139FDC");
