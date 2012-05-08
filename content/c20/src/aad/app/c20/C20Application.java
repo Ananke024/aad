@@ -23,17 +23,17 @@ import org.acra.annotation.ReportsCrashes;
 //        resToastText = R.string.crash_toast_text
 //        )
 
-@ReportsCrashes(
-    formKey = "",
-    mailTo = "xone@uw.edu",
-    mode = ReportingInteractionMode.TOAST,
-    resToastText = R.string.crash_toast_text)
-
 //@ReportsCrashes(
-//    formKey = "dG5LOGp4dGctak5Qa3V4LTlPSHZTSFE6MQ", 
-//    mode = ReportingInteractionMode.TOAST, 
-//    forceCloseDialogAfterToast = false, 
+//    formKey = "",
+//    mailTo = "xone@uw.edu",
+//    mode = ReportingInteractionMode.TOAST,
 //    resToastText = R.string.crash_toast_text)
+
+@ReportsCrashes(
+    formKey = "dG5LOGp4dGctak5Qa3V4LTlPSHZTSFE6MQ", 
+    mode = ReportingInteractionMode.TOAST, 
+    forceCloseDialogAfterToast = false, 
+    resToastText = R.string.crash_toast_text)
 
 public class C20Application extends Application {
 

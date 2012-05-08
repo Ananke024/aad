@@ -5,22 +5,19 @@
     android:padding="10dp"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/registerButton"
+    <EditText
+        android:id="@+id/messageEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register" />
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
     <Button
-        android:id="@+id/unregisterButton"
+        android:id="@+id/messageButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Unregister" />
-    
-    <Button
-        android:id="@+id/sendMessageButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send a Message" />
+        android:text="Send" />
 
 </LinearLayout>

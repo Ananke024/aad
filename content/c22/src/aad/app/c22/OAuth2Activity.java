@@ -133,8 +133,7 @@ public class OAuth2Activity extends Activity implements OnClickListener {
 //        }
         
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(
-                "http://uploads.gdata.youtube.com/feeds/api/users/default/uploads");
+        HttpPost httpPost = new HttpPost("http://uploads.gdata.youtube.com/feeds/api/users/default/uploads");
         
         SharedPreferences sp = this.getSharedPreferences(Constants.PREF_NAME, 0);
         String sessionToken = sp.getString(Constants.PREF_KEY_AUTHTOKEN, "");        

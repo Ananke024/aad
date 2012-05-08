@@ -5,5 +5,8 @@
         android:key="facebook_login"
         android:title="Login to Facebook"/>   
 
+     <Preference 
+        android:key="facebook_share"
+        android:title="Share to Facebook"/> 
 
 </PreferenceScreen>

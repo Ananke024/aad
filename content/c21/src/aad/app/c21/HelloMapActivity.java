@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -89,6 +90,9 @@ public class HelloMapActivity extends MapActivity implements OnClickListener {
         
         mOrbitalNukeOverlay.nuke();
         mMapView.invalidate();
+        
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.nuke);
+        mp.start();
     }
 
     @Override
