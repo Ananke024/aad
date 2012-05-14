@@ -26,7 +26,6 @@ public class C2DMReceiver extends BroadcastReceiver {
     private void handleMessage(Context context, Intent intent) {
         Log.d(TAG, "handleMessage() Action: " + intent);
 
-        // TODO Send a system notification, for now we just toast
         Bundle extras = intent.getExtras();
         if (extras != null) {
             String message = extras.getString("message");
