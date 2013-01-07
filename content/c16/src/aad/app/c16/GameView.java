@@ -341,7 +341,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         
         // The thread is actually started here, once the surface is created.
         mAnimationThread.setRunning(true);
-        mAnimationThread.start();
+        if (!mAnimationThread.isAlive())
+            mAnimationThread.start();
     }
 
     /**
