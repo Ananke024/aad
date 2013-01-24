@@ -36,6 +36,7 @@ public class HelloAssetActivity extends Activity {
         // Load a Drawable
         ImageView iv0 = (ImageView) this.findViewById(R.id.imageView0);
         iv0.setImageDrawable(resources.getDrawable(R.drawable.pm5544_ntsc_2));
+        // Just another way to do iv0.setImageResource(R.drawable.pm5544_ntsc_2);
 
         try {
 
