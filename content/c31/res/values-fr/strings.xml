@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">C31_HalloWelt</string>
+    <string name="greeting">Bonjour!</string>
+    <string name="policy_privacy">L\'inscription à cette demande une adresse email valide. Les données peuvent être utilisées pour personnaliser et améliorer votre expérience de l\'utilisateur dans cette application.</string>
+
+</resources>
