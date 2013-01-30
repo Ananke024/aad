@@ -6,4 +6,5 @@
     <string name="username">Benutzername</string>
     <string name="password">Kennwort</string>
     <string name="signin">Anmeldung</string>
+    <string name="upgrade">Verbessern auf Pro!</string>
 </resources>
