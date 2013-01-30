@@ -37,5 +37,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/signin" />
+    
+    <TextView
+        android:id="@+id/privacyPolityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:text="@string/policy_privacy" />
 
 </LinearLayout>
