@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 
 public class ColorActivity extends Activity {
 
@@ -11,7 +12,6 @@ public class ColorActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Log.d(TAG, "onCreate()");
         
         super.onCreate(savedInstanceState);
@@ -20,6 +20,9 @@ public class ColorActivity extends Activity {
         // Turn off animations
         getWindow().setWindowAnimations(android.R.style.Animation);
         
+        // Enable the up affordance
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        
         Bundle b = getIntent().getExtras();
         String colorString = b.getString("color");
         if (colorString != null)
@@ -27,4 +30,17 @@ public class ColorActivity extends Activity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected()");
+        
+        // Handle the up affordance
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        
+        return super.onOptionsItemSelected(item);
+    }
+
+    
+    
 }

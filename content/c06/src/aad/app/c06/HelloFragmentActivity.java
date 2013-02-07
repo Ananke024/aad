@@ -9,7 +9,6 @@ import org.xmlpull.v1.XmlPullParserException;
 import aad.app.c06.R;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.ActionBar.TabListener;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
@@ -36,6 +35,10 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
 
     private ActionBar mActionBar;
     private boolean mDualPane = true;
+    private ListFragment mListFragment;
+    private ColorFragment mColorFragment;
+    private TextFragment mTextFragment;
+    
 
     /** A representation of each of our list items
      * 
@@ -57,7 +60,8 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        Log.d(TAG, "onCreate()");
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
@@ -112,26 +116,25 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
         });
         
         
+        mListFragment = (ListFragment) getFragmentManager().findFragmentById(R.id.listFragment);        
+        mColorFragment = new ColorFragment();
+        mTextFragment = new TextFragment();        
+        
         // Setup the Action Bar        
         mActionBar = this.getActionBar();
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         
         Tab t1 = mActionBar.newTab();
-        t1.setText("Tab 1");
+        t1.setText("Color");
         t1.setTabListener(this);
         
         Tab t2 = mActionBar.newTab();
-        t2.setText("Tab 2");
+        t2.setText("Text");
         t2.setTabListener(this);
-        
-        Tab t3 = mActionBar.newTab();
-        t3.setText("Tab 3");
-        t3.setTabListener(this);
         
         mActionBar.addTab(t1);
         mActionBar.addTab(t2);
-        mActionBar.addTab(t3);
-
+        
     }
     
     @Override
@@ -173,17 +176,16 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
 
     /** Show either a fragment or activity in the selected color */
     void showColor(int index, String colorString) {
-
-        Log.d(TAG, "showFragment() index:" + index + " colorString: " + colorString);
+        Log.d(TAG, "showColor() index:" + index + " colorString: " + colorString);
 
         if (mDualPane) {
+            
+            mColorFragment.setColor(Color.parseColor(colorString));
 
-            ColorFragment colorFragment = ColorFragment.getInstance(index);
-            colorFragment.setColor(Color.parseColor(colorString)); // This is set before onCreateView
-
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragmentContainer, colorFragment);
-            ft.commit();
+            // This was the old way, when not using Tabs
+            //FragmentTransaction ft = getFragmentManager().beginTransaction();            
+            //ft.replace(R.id.fragmentContainer, mColorFragment);
+            //ft.commit();
         }
         else {
 
@@ -197,22 +199,44 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
 
     @Override
     public void onTabReselected(Tab tab, FragmentTransaction ft) {
-
-        // TODO Auto-generated method stub
-        
+        // Currently we do nothing        
     }
 
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
 
-        // TODO Auto-generated method stub
+        int position = tab.getPosition();
+        switch (position) {
+            
+            case 0:
+                if (mDualPane)
+                    ft.add(R.id.fragmentContainer, mColorFragment);
+                break;
+                
+            case 1:
+                ft.hide(mListFragment);
+                ft.add(R.id.mainLayout, mTextFragment);
+                break;
+        }
         
     }
 
     @Override
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 
-        // TODO Auto-generated method stub
+        int position = tab.getPosition();
+        switch (position) {
+            
+            case 0:
+                if (mDualPane)
+                    ft.remove(mColorFragment);
+                break;
+                
+            case 1:
+                ft.show(mListFragment);
+                ft.remove(mTextFragment);
+                break;
+        }
         
     }
 
