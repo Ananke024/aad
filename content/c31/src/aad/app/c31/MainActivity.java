@@ -1,7 +1,7 @@
 
 package aad.app.c31;
 
-import aad.app.c30.R;
+import aad.app.c31.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
